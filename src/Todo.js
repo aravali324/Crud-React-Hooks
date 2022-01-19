@@ -1,12 +1,12 @@
-import React, { useContext, memo } from 'react';
-import useToggle from './Toggler';
-import EditTodoForm from './EditTodoForm';
-import { DispatchContext } from './context/todos.context';
+import React, { useContext, memo } from "react";
+import useToggle from "./Toggler";
+import EditTodoForm from "./EditTodoForm";
+import { DispatchContext } from "./context/todos.context";
 
 function Todo({ task, completed, id }) {
   const dispatch = useContext(DispatchContext);
   const myStyle = {
-    textDecoration: completed ? 'line-through' : 'none',
+    textDecoration: completed ? "line-through" : "none",
   };
 
   const handleEdit = () => {
@@ -14,7 +14,7 @@ function Todo({ task, completed, id }) {
   };
 
   const [isEditing, toggle] = useToggle(false);
-   
+  //  Hello World 2234
   return (
     <div>
       {isEditing ? (
@@ -22,17 +22,17 @@ function Todo({ task, completed, id }) {
       ) : (
         <div>
           <li style={myStyle}>
-            {task}{' '}
+            {task}{" "}
             <input
-              type='checkbox'
+              type="checkbox"
               defaultChecked={completed}
               onClick={() => {
-                dispatch({ type: 'TOGGLE', id: id });
+                dispatch({ type: "TOGGLE", id: id });
               }}
             />
             <button
               onClick={() => {
-                dispatch({ type: 'REMOVE', id: id });
+                dispatch({ type: "REMOVE", id: id });
               }}
             >
               Delete
